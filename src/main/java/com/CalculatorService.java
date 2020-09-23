@@ -8,12 +8,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class CalculatorService {
 
-	@GetMapping("/sum")
+	@GetMapping("/calculator/sum")
 	public int getSum() {
 		return (10 + 20);
 	}
 
-	@GetMapping("/minus/{a}/{b}")
+	@GetMapping("/calculator/minus/{a}/{b}")
 	public String getMinus(@PathVariable("a") String a, @PathVariable("b") String b) {
 		
 		int i=Integer.parseInt(a);
@@ -23,10 +23,28 @@ public class CalculatorService {
 		}
 		return "Please enter the bigger value first";
 	}
-
-	@RequestMapping(path = "/biodata/{name}/{title}")
-	public String getMessage(@PathVariable("name") String name, @PathVariable("title") String title) {
-
-		return String.format("My name is %s %s", name, title);
+	
+	@GetMapping("/calculator/static")
+	public int getStaticValue() {
+		return 55;
 	}
+	
+	@GetMapping("/calculator/divide/{a}/{b}")
+	public String getDivide(@PathVariable("a") String a, @PathVariable("b") String b) {
+		
+		int i=Integer.parseInt(a);
+		int j=Integer.parseInt(b);
+		if(i>j){
+			return "Devide is:" + (Integer.parseInt(a)/ Integer.parseInt(b));
+		}
+		return "Please enter the bigger value first";
+	}
+	
+	@GetMapping("/calculator/multi/{a}/{b}")
+	public String getMulti(@PathVariable("a") String a, @PathVariable("b") String b) {
+			return "Multiply is:" + (Integer.parseInt(a) * Integer.parseInt(b));
+		
+	}
+
+	
 }

@@ -24,8 +24,21 @@ public class TestCalculatorService {
 	}
 	
 	@Test
-	public void testMessage() {
-		System.out.println("This is message method testing");
-		Assertions.assertEquals(calc.getMessage("Sarbasree", "Sarkar"), "My name is Sarbasree Sarkar");
+	public void testStatic() {
+		System.out.println("This is static method testing");
+		Assertions.assertEquals(calc.getStaticValue(), 55);
 	}
+	
+	@Test
+	public void testDivide() {
+		System.out.println("This is devide method testing");
+		Assertions.assertEquals(calc.getDivide("40", "20"), "Devide is:"+2);
+	}
+	
+	@Test
+	public void testMulti() {
+		System.out.println("This is mulyiply method testing");
+		Assertions.assertEquals(calc.getMulti("40", "30"), "Multiply is:"+1200);
+	}
+	
 }
